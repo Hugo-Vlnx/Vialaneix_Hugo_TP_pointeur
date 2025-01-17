@@ -130,6 +130,7 @@
     <ClCompile Include="defFct.c" />
     <ClCompile Include="const.c" />
     <ClCompile Include="pointeur.c" />
+    <ClCompile Include="pointeurFct.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
