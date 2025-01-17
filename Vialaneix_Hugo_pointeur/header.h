@@ -13,6 +13,7 @@ typedef struct  {
 }application;
 
 void displayMenu(const application* app);
+void runApplication(const application* app);
 
 
 #endif
