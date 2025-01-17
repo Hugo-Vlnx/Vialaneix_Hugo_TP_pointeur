@@ -12,7 +12,7 @@ typedef struct  {
 	int nb_menus;
 }application;
 
-
+void displayMenu(const application* app);
 
 
 #endif
