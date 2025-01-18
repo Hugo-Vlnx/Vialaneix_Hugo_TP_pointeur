@@ -15,12 +15,12 @@ void displayMenu(const application* app) {
 }
 
 void runApplication(const application* app) {
-    int optChoix = 2;
+	int optChoix = 2;
 	while (optChoix != 0) {
 		displayMenu(app);
 
-		
-		
+
+
 		scanf_s("%d", &optChoix);
 		if (optChoix == 0) {
 			return 0;
@@ -31,7 +31,28 @@ void runApplication(const application* app) {
 			scanf_s("%d", &optChoix);
 		}
 		else {
-			printf(" vous avez choisis: %s\n ", app->menus[optChoix-1].option);
+			printf(" vous avez choisis: %s\n ", app->menus[optChoix - 1].option);
 		}
+		Sleep(4000);
+		system("cls");
 	}
+}
+void runPhone(application * app1, application * app2) {
+		printf("-- - Applications-- - \n1. Photos\n2. Messages\n0. Quitter");
+		int choix = 0;
+		scanf_s("%d", &choix);
+
+		if(choix==0){
+			return 0;
+		}
+		else if{
+
+		}
+		else if{
+
+		}
+		else {
+
+		}
+		
 }

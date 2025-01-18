@@ -16,4 +16,8 @@ int main() {
 
 	/*displayMenu( &photoApp);*/
     runApplication( &photoApp);
+
+	menu messageMenus[] = { "Lire un message", "Envoyer un message" };
+	application messageApp = { "message", {&messageMenus}, 2 };
+
 } 
