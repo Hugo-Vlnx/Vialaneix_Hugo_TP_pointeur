@@ -14,10 +14,12 @@ int main() {
 	menu photoMenus[3] = { "Regarder une photo", "Prendre une photo","modifier une photo" };
 	application photoApp = { "appareil Photo", {&photoMenus}, 3 };
 
-	/*displayMenu( &photoApp);*/
-    runApplication( &photoApp);
+	/*displayMenu( &photoApp);
+    runApplication( &photoApp);*/
 
 	menu messageMenus[] = { "Lire un message", "Envoyer un message" };
 	application messageApp = { "message", {&messageMenus}, 2 };
 
+	runPhone(&messageApp, &photoApp);
+	
 } 

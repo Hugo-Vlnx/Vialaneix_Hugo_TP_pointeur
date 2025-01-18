@@ -23,7 +23,8 @@ void runApplication(const application* app) {
 
 		scanf_s("%d", &optChoix);
 		if (optChoix == 0) {
-			return 0;
+			system("cls");
+			break;
 		}
 		else if (optChoix > app->nb_menus) {
 			printf("option indisponible,veuillez choisir le chiffre d'option: ");
@@ -33,26 +34,34 @@ void runApplication(const application* app) {
 		else {
 			printf(" vous avez choisis: %s\n ", app->menus[optChoix - 1].option);
 		}
-		Sleep(4000);
+		Sleep(2500);
 		system("cls");
 	}
 }
 void runPhone(application * app1, application * app2) {
-		printf("-- - Applications-- - \n1. Photos\n2. Messages\n0. Quitter");
-		int choix = 0;
-		scanf_s("%d", &choix);
-
-		if(choix==0){
-			return 0;
-		}
-		else if{
-
-		}
-		else if{
-
-		}
-		else {
-
-		}
 		
+		int choix = 1;
+		
+		while (choix != 0) {
+            printf("-- - Applications-- - \n1. Photos\n2. Messages\n0. Quitter\n");
+            scanf_s("%d", &choix);
+			if (choix == 0) {
+				system("cls");
+				runPhone(app1, app2);
+			}
+			else if (choix == 1) {
+				system("cls");
+				runApplication(app1);
+
+			}
+			else if (choix == 2) {
+				system("cls");
+				runApplication(app2);
+			}
+			else if (choix > 2) {
+				printf("option indisponible,veuillez choisir le chiffre d'option: ");
+				int Choix = 0;
+				scanf_s("%d", &Choix);
+			}
+		}
 }
