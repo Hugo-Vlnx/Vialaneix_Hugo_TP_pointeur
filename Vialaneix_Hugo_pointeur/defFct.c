@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "header.h"
 #include <Windows.h>
+#include <string.h>
 
 void displayMenu(const application* app) {
 	
@@ -64,4 +65,25 @@ void runPhone(application * app1, application * app2) {
 				scanf_s("%d", &Choix);
 			}
 		}
+}
+
+void updateMenu(application* app, int menuIndex, const char* newOption) {
+	printf("quelle index voulait vous modifier ?\n");
+	scanf_s("d", &menuIndex);
+	if (menuIndex < 0 || menuIndex >= app->nb_menus) {
+		printf("Index invalide. Veuillez fournir un index entre 1 et %d.\n", app->nb_menus - 1);
+		return;
+	}
+	else {
+		strncpy(app->menus[menuIndex-1].option, newOption, sizeof(app->menus[menuIndex].option));
+		printf("L'option %d a été mise à jour avec succès : %s\n", menuIndex, app->menus[menuIndex - 1].option);
+	}
+}
+void updateApplication(application* app, const char* newName, menu* newMenus, int newMenuCount) {
+	strncpy(app->nom, newName, sizeof(newName));
+	app->nb_menus= newMenuCount;
+	for (int i = 0; i < app->nb_menus; i++) {
+		strncpy(app->menus[i].option, newMenus[i].option, sizeof(app->menus[i].option));
+	}
+
 }

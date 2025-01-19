@@ -15,6 +15,8 @@ typedef struct  {
 void displayMenu(const application* app);
 void runApplication(const application* app);
 void runPhone(application* app1, application* app2);
+void updateMenu(application* app, int menuIndex, const char* newOption);
+void updateApplication(application* app, const char* newName, menu* newMenus, int newMenuCount);
 
 
 #endif

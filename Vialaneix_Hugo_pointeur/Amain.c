@@ -21,5 +21,5 @@ int main() {
 	application messageApp = { "message", {&messageMenus}, 2 };
 
 	runPhone(&messageApp, &photoApp);
-	
+	updateMenu(&photoApp);
 } 
