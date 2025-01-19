@@ -41,30 +41,67 @@ void runApplication(const application* app) {
 }
 void runPhone(application * app1, application * app2) {
 		
+void runPhone(application * app1, application * app2) {
 		int choix = 1;
-		
-		while (choix != 0) {
-            printf("-- - Applications-- - \n1. Photos\n2. Messages\n0. Quitter\n");
-            scanf_s("%d", &choix);
-			if (choix == 0) {
-				system("cls");
-				runPhone(app1, app2);
-			}
-			else if (choix == 1) {
-				system("cls");
-				runApplication(app1);
 
-			}
-			else if (choix == 2) {
-				system("cls");
+		while (choix != 0) {
+			printf("--- Applications ---\n");
+			printf("1. %s\n", app1->nom);
+			printf("2. %s\n", app2->nom);
+			printf("3. Modifier le menu de '%s'\n", app1->nom);
+			printf("4. Modifier l'application '%s'\n", app2->nom);
+			printf("0. Quitter\n");
+			printf("Votre choix : ");
+			scanf_s("%d", &choix);
+
+			system("cls");
+			switch (choix)
+			{
+			 case 1: {
+				runApplication(app1);
+				break;
+			 }
+			 case 2: {
 				runApplication(app2);
-			}
-			else if (choix > 2) {
-				printf("option indisponible,veuillez choisir le chiffre d'option: ");
-				int Choix = 0;
-				scanf_s("%d", &Choix);
+				break;
+			 }
+			 case 3:{
+				int menuIndex;
+				char newOption[50];
+				printf("Entrez l'index du menu à modifier dans '%s' : ", app1->nom);
+				scanf_s("%d", &menuIndex);
+				printf("Entrez la nouvelle option : ");
+				scanf_s(" %s", &newOption, (unsigned)sizeof(newOption));
+				updateMenu(app1, menuIndex, newOption);
+				break;
+			 }
+			 case 4: {
+				char newName[50];
+				int newMenuCount;
+				Menu newMenus[10];
+
+				printf("Entrez le nouveau nom de l'application '%s' : ", app2->nom);
+				scanf_s("%s", &newName, (unsigned)sizeof(newName));
+				printf("Entrez le nombre de menus pour '%s' : ", newName);
+				scanf_s("%d", &newMenuCount);
+
+				for (int i = 0; i < newMenuCount; i++) {
+					printf("Entrez l'intitulé du menu %d : ", i + 1);
+					scanf_s(" %s", &newMenus[i].option, (unsigned)sizeof(newMenus[i].option));
+				}
+
+				updateApplication(app2, newName, newMenus, newMenuCount);
+				break;
+			 }
+			 case 0: {
+				printf("Fermeture du programme...\n");
+				break;
+			 }
+				 Sleep(2000);
+				 system("cls");
 			}
 		}
+		
 }
 
 void updateMenu(application* app, int menuIndex, const char* newOption) {
